@@ -67,11 +67,15 @@ public class Main {
                     String iban_adresi = input.nextLine();
                     if (iban_adresi.length()==26 && iban_adresi.equals("TR636321632163216321632163")){
                         System.out.print("Yatırılacak tutarı giriniz: ");
-                        double ibana_aktarme = input.nextDouble(); // küsüratı virgül kullanarak belirt
-                        emin_bakiye -= ibana_aktarme;
-                        enes_bakiye += ibana_aktarme;
-                        System.out.println("Kalan bakiye: "+emin_bakiye);
-                        System.out.println("Enes bakiye: "+enes_bakiye);
+                        double ibana_aktarma = input.nextDouble(); // küsüratı virgül kullanarak belirt
+                        if (ibana_aktarma<=emin_bakiye){
+                            emin_bakiye -= ibana_aktarma;
+                            enes_bakiye += ibana_aktarma;
+                            System.out.println("Kalan bakiye: "+emin_bakiye);
+                            System.out.println("Enes bakiye: "+enes_bakiye);
+                        }else {
+                            System.out.println("Bakiye yetersiz !!!");
+                        }
                     }else {
                         System.out.println("Hatalı IBAN grildi");
                     }
@@ -113,11 +117,15 @@ public class Main {
                     String iban_adresi = input.nextLine();
                     if (iban_adresi.length()==26 && iban_adresi.equals("TR826382638263826382638282")){
                         System.out.print("Yatırılacak tutarı giriniz: ");
-                        double ibana_aktarme = input.nextDouble(); // küsüratı virgül kullanarak belirt
-                        enes_bakiye -= ibana_aktarme;
-                        emin_bakiye += ibana_aktarme;
-                        System.out.println("Kalan bakiye: "+enes_bakiye);
-                        System.out.println("Enes bakiye: "+emin_bakiye);
+                        double ibana_aktarma = input.nextDouble(); // küsüratı virgül kullanarak belirt
+                        if (ibana_aktarma<=emin_bakiye){
+                            enes_bakiye -= ibana_aktarma;
+                            emin_bakiye += ibana_aktarma;
+                            System.out.println("Kalan bakiye: "+enes_bakiye);
+                            System.out.println("Emin bakiye: "+emin_bakiye);
+                        }else {
+                            System.out.println("Bakiye yetersiz !!!");
+                        }
                     }else {
                         System.out.println("Hatalı IBAN grildi");
                     }
